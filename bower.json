@@ -1,0 +1,19 @@
+{
+  "name": "jquery-datatables-row-grouping",
+  "version": "1.2.9",
+  "homepage": "https://github.com/jarobe42/jquery-datatables-row-grouping",
+  "description": "JQuery DataTables is a plug-in for the jQuery Javascript library. It is a highly flexible tool, based upon the foundations of progressive enhancement, which will add advanced interaction controls to any HTML table. DataTables Row Grouping plugin is an add-on for the DataTables where is provided out of box row grouping code",
+  "main": "jquery.dataTables.grouping.js",
+  "keywords": [
+    "jquery",
+    "datatables"
+  ],
+  "license": "GPL v2",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
