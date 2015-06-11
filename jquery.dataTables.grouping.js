@@ -24,6 +24,7 @@
 * @sGroupLabelPrefix                                    String              Prefix that will be added to each group cell
 * @bExpandableGrouping                                  Boolean             Attach expand/collapse handlers to the grouping rows
 * @bExpandSingleGroup                                   Boolean             Use accordon grouping
+* @bUseGroupingInheritance                                 Boolean             Determines if sub-groups are affected by the behaviour of their parent group. ie - expanding group "parent" also expands group "parent-child"
 * @iExpandGroupOffset                                   Integer             Number of pixels to set scroll position above the currently selected group. If -1 scroll will be alligned to the table
 * General settings
 * @sDateFormat: "dd/MM/yyyy"                            String              Date format used for grouping
@@ -84,6 +85,7 @@
             bExpandSingleGroup: false,
             iExpandGroupOffset: 100,
             asExpandedGroups: null,
+            bUseGroupingInheritance: false,
 
             sDateFormat: "dd/MM/yyyy",
             sEmptyGroupLabel: "-",
@@ -277,8 +279,12 @@
 				
 			    aoGroups[sGroup].state = "expanded";	
 				
-				$("td[data-group^='" + sGroup + "']").removeClass("collapsed-group");
-                $("td[data-group^='" + sGroup + "']").addClass("expanded-group");
+				var selector = "td[data-group='" + sGroup + "']";
+                if(properties.bUseGroupingInheritance){
+                    selector = "td[data-group^='" + sGroup + "']"
+                }
+                $(selector).removeClass("collapsed-group");
+                $(selector).addClass("expanded-group");
 						
 						
 				if(properties.bUseFilteringForGrouping)
@@ -305,8 +311,12 @@
                 ///<summary>Collapse group if expanadable grouping is used</summary>
 
 				aoGroups[sGroup].state = "collapsed";
-				$("td[data-group^='" + sGroup + "']").removeClass("expanded-group");
-                $("td[data-group^='" + sGroup + "']").addClass("collapsed-group");
+				var selector = "td[data-group='" + sGroup + "']"
+                if(properties.bUseGroupingInheritance){
+                    selector = "td[data-group^='" + sGroup + "']";
+                }
+                $(selector).removeClass("expanded-group");
+                $(selector).addClass("collapsed-group");
 				
 				if(properties.bUseFilteringForGrouping)
 				{
