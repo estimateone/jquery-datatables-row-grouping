@@ -1,0 +1,9 @@
+{
+  "name": "jquery-datatables-row-grouping",
+  "version": "1.2.9",
+  "description": "Forked from jarobe42/jquery-datatables-row-grouping",
+  "main": "jquery.dataTables.grouping.js",
+  "repository": "git@github.com:estimateone/jquery-datatables-row-grouping.git",
+  "author": "Nick Law <nick@nicholaslaw.com.au>",
+  "license": "MIT"
+}
